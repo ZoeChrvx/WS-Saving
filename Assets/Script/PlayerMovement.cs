@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && isGrounded == true)
         {
+            Debug.Log("saute du c*n");
             rb.AddForce(Vector3.up * jump, ForceMode2D.Impulse);
             isGrounded = false;
         }
@@ -89,9 +90,8 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerHealth.instance.LostPV(10);
         }
-        else if(collision.gameObject.tag == "Enemy")
-        {
-            PlayerHealth.instance.LostPV(enemy.damage);
-        }
+        
     }
+
+    
 }

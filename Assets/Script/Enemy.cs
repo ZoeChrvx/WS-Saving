@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         health = health - damage;
-        Invoke("ReserColor", 0.5f);
+        Invoke("ResetColor", 0.5f);
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -34,5 +34,11 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            PlayerHealth.instance.LostPV(damage);
+        }
+    }
 }

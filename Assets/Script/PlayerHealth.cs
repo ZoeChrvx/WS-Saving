@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
-    public int maxHealth = 10;
+    public int maxHealth = 3;
     public int health;
 
     public void Awake()
@@ -27,7 +27,8 @@ public class PlayerHealth : MonoBehaviour
     public void LostPV(int damage)
     {
         health = health - damage;
-        if(health <= 0)
+        Ui.instance.ChangeLifeStates();
+        if (health <= 0)
         {
             //menu mort
             Destroy(gameObject);
