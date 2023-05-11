@@ -90,8 +90,12 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerHealth.instance.LostPV(10);
         }
-        
+        else if(collision.gameObject.tag == "Diamond")
+        {
+            Ui.instance.AddDiamond();
+        }
     }
+
 
     
 }
